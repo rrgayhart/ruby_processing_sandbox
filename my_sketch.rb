@@ -5,11 +5,19 @@ class ProcessArtist < Processing::App
   attr_accessor :queue
 
   def setup
-    background(0, 0, 0)
+    background(100, 100, 100)
+    rect_mode CENTER
+  end
+
+  def mouse_released
+    background(100, 100, 100)
+    rect(1,2,1,1)
   end
 
   def draw
-    # Do Stuff
+    if mouse_pressed?
+      rect(mouse_x, mouse_y, 10 * 2, 10* 2)
+    end
   end
 
   def run_command(command)
